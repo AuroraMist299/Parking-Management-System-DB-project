@@ -1,0 +1,2 @@
+# Parking-Management-System-DB-project
+The Parking Management System (PMS) is a software solution that automates the management of parking spaces, optimizing availability and enhancing user experience. Utilizing technologies like sensors and mobile apps, it streamlines processes such as space monitoring and payment collection. This project showcases the development of PMS using XAMPP, HTML, CSS, and PHP.
