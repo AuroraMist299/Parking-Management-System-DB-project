@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle, brown, beige);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Main Container for the Form */
+        .reservation-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 350px;
+        }
+
+        /* Page Heading */
+        h2 {
+            text-align: center;
+            color: black;
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        /* Input Fields Styling */
+        input[type="text"],
+        input[type="email"],
+        input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        /* Button Styling */
+        button.reserve {
+            width: 100%;
+            padding: 12px;
+            background-color: brown;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover Effect for Button */
+        button.reserve:hover {
+            background-color: brown;
+        }
+
+        /* Active Effect for Button */
+        button.reserve:active {
+            background-color: brown;
+        }
+
+        /* Success Message */
+        .success {
+            text-align: center;
+            color: green;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reservation-container">
+        <h2>Reservation Form</h2>
+        <form action="reservation_form.php" method="POST">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="text" id="phone_number" name="phone_number" placeholder="Your phone number" required>
+            <input type="text" id="vehicle_number" name="vehicle_number" placeholder="Vehicle Number" required>
+            <button type="submit" class="reserve">Reserve Spot</button>
+        </form>
+        
+
+        <div class="success" id="successMessage"></div>
+    </div>
+
+
+</body>
+</html>

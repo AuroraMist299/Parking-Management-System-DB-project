@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spot Allocation - Parking Management System</title>
+    <link rel="stylesheet" href="styles-spot-allocation.css">
+<style>
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: radial-gradient(circle, brown, beige);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 275vh;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.spot-allocation-container {
+    width: 70%;
+    max-width: 1200px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 1s ease-out; /* Fade-in effect */
+}
+
+/* Header Styling */
+header h1 {
+    color: black;
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Subtle depth effect */
+}
+
+header p {
+    color: #333;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* Spot Selection Section Styling */
+.spot-selection {
+    margin-bottom: 50px;
+}
+
+.spot-selection h2 {
+    color: black;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.spot-selection p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+/* Form Styles */
+.spot-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.spot-form label {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+    text-align: left;
+    letter-spacing: 0.5px;
+}
+
+.spot-form input, .spot-form select {
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: #f7f7f7;
+    width: 250px;
+}
+
+.spot-form input:focus, .spot-form select:focus {
+    border-color: #4a90e2;
+}
+
+.reserve-btn {
+    padding: 12px 25px;
+    background-color:brown;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.reserve-btn:hover {
+    background-color: #357ab8;
+    transform: translateY(-5px); /* Hover effect */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.reserve-btn:active {
+    transform: translateY(2px); /* Pressed effect */
+}
+
+/* Available Parking Spot Cards */
+.available-spots {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.spot-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.spot-card h3 {
+    color: black;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.spot-card p {
+    color: #777;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.spot-card button {
+    padding: 10px 20px;
+    background-color: brown;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.spot-card button:hover {
+    background-color: maroon;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 50px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: maroon;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #357ab8; /* Hover color transition */
+    text-decoration: underline;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .spot-allocation-container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .spot-selection h2 {
+        font-size: 2.2rem;
+    }
+
+    .spot-card {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .spot-form input, .spot-form select {
+        width: 80%;
+    }
+
+    .reserve-btn {
+        font-size: 1rem;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="spot-allocation-container">
+        <header>
+            <h1>Spot Allocation</h1>
+            <p>Find and reserve a parking spot tailored to your needs.</p>
+        </header>
+
+        <section class="spot-selection">
+            <h2>Select Your Spot</h2>
+            <p>Choose the parking spot based on your preferences and availability:</p>
+            <form action="select_your_spot.php" method="POST">
+                <label for="zip_code">Zip Code:</label>
+                <input type="text" id="zip_code" name="zip_code" required><br><br>
+            
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required><br><br>
+            
+                <label for="spot_type">Spot Type:</label>
+                <select id="spot_type" name="spot_type" required>
+                    <option value="">Select Spot Type</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Premium">Premium</option>
+                    <option value="VIP">VIP</option>
+                </select><br><br>
+            
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required><br><br>
+            
+                <button type="submit">Reserve Spot</button>
+            </form>
+            
+            </form>
+            
+        </section>
+
+        <section class="spot-details">
+            <h2>Available Parking Spots</h2>
+            <p>Based on your selection, here are some available spots:</p>
+
+            <div class="available-spots">
+                <div class="spot-card">
+                    <h3>Spot #1</h3>
+                    <p>Standard Parking</p>
+                    <p>Location: ISLAMABAD</p>
+                    <p>Available: 10 AM - 6 PM</p>
+                    <button class="reserve-btn" onclick="redirectToReservation()">Reserve</button>
+                </div>
+<script>
+        function redirectToReservation() {
+            window.location.href = "select_your_spot.html"; // Replace with the correct file path or URL
+        }
+    </script>
+
+                <div class="spot-card">
+                    <h3>Spot #2</h3>
+                    <p>Premium Parking</p>
+                    <p>Location: KARACHI</p>
+                    <p>Available: 9 AM - 5 PM</p>
+                    <button class="reserve-btn" onclick="redirectToReservation()">Reserve</button>
+                </div>
+<script>
+        function redirectToReservation() {
+            window.location.href = "select_your_spot.html"; // Replace with the correct file path or URL
+        }
+    </script>
+                <div class="spot-card">
+                    <h3>Spot #3</h3>
+                    <p>VIP Parking</p>
+                    <p>Location: LAHORE</p>
+                    <p>Available: 24/7</p>
+                    <button class="reserve-btn" onclick="redirectToReservation()">Reserve</button>
+                </div>
+<script>
+        function redirectToReservation() {
+            window.location.href = "select_your_spot.html"; // Replace with the correct file path or URL
+        }
+    </script>
+            </div>
+        </section>
+
+        <footer>
+            <p>Need help? <a href="contactUs.html">Contact Us</a></p>
+        </footer>
+    </div>
+</body>
+</html>

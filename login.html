@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background:radial-gradient(circle, brown, beige);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Main Container for the Form */
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        /* Input Fields Styling */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        /* Button Styling */
+        button.login {
+            width: 100%;
+            padding: 12px;
+            background-color: brown;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover Effect for Button */
+        button.login:hover {
+            background-color: brown;
+        }
+
+        /* Active Effect for Button */
+        button.login:active {
+            background-color: brown;
+        }
+
+        /* Link Styling (for Sign Up or Forgot Password) */
+        .link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .link a {
+            color: black;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+            <form action="login.php" method="POST">
+                <label for="full_name">full_name:</label>
+                <input type="text" id="full_name" name="full_name" required>
+                <br><br>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br><br>
+                
+                <button type="submit">Login</button>
+            </form>
+
+        <div class="link">
+            
+            <a href="forgetpassword.html">Forget Password?</a></p>
+    
+             <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

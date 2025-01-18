@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Parking Management System</title>
+    <link rel="stylesheet" href="styles-signup.css">
+<style>
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background:radial-gradient(circle, brown, beige);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 140vh;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.signup-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+header h1 {
+    color: black;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Form Styles */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.signup-form label {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+    text-align: left;
+}
+
+.signup-form input {
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.signup-form input:focus {
+    border-color: brown;
+}
+
+.submit-btn {
+    padding: 12px;
+    background-color: brown;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: brown;
+    transform: scale(1.05); /* Button hover effect */
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: maroon;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .signup-container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    .signup-form label {
+        font-size: 1rem;
+    }
+
+    .signup-form input {
+        font-size: 0.95rem;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="signup-container">
+        <header>
+            <h1>Sign Up for Parking Management System</h1>
+            <p>Create your account to access parking services.</p>
+        </header>
+
+        <form class="signup-form" action="signup.php" method="POST">
+            <label for="full_name">Full Name</label>
+            <input type="text" id="full_name" name="full_name" required placeholder="Enter your full name">
+        
+            <label for="email_address">Email Address</label>
+            <input type="email_address" id="email_address" name="email_address" required placeholder="Enter your email address">
+        
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+        
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm your password">
+        
+            <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+        
+
+        <footer>
+            <p>Already have an account? <a href="login.html"> LoginHere</a></p>
+        </footer>
+    </div>
+</body>
+</html>
